@@ -149,7 +149,7 @@ class DiscordOAuthClient:
             proxy_auth=self.proxy_auth,
         ) as resp:
             if resp.status != 200:
-                raise Exception(f"Error Occured: {resp.json()}")
+                raise Exception(f"Error Occured: {await resp.json()}")
             return await resp.json()
 
     async def get_access_token(self, code: str) -> Tuple[str, str]:
